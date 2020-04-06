@@ -15,7 +15,7 @@ A place where you can have a conversation. Because you are not alone.
 ## Site User Roles
 
 - [ ] User
-	-[ ] Can post messages
+	- [ ] Can post messages
 - [ ] Volunteer
 	- [ ] Can read messages
 	- [ ] Can reply to messages
