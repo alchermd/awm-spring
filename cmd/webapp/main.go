@@ -19,6 +19,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", handlers.Home).Methods("GET")
+	r.HandleFunc("/api/messages", handlers.CreateMessage).Methods("POST")
 
 	assetPath := "/assets/"
 	log.Print("Serving static files on " + assetPath)

@@ -14,3 +14,8 @@ body {
 p {
 	line-height: 1.8;
 }
+
+.modal {
+	text-shadow: none;
+	color: #333;
+}

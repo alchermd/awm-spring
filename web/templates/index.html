@@ -1,54 +1,94 @@
 <!doctype html>
 <html lang="en">
-	<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap" rel="stylesheet">
 
-	<title>home | alone with me</title>
+    <title>home | alone with me</title>
 
-	<!-- Original styles -->
-	<link rel="stylesheet" type="text/css" href="/assets/css/cover.css">
-	<!-- Custom styles for this template -->
-	<link href="/assets/css/index.css" rel="stylesheet">
+    <!-- Original styles -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/cover.css">
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/index.css" rel="stylesheet">
 </head>
 <body>
 
-	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-		<header class="masthead mb-auto">
-			<div class="inner">
-				<h3 class="masthead-brand">awm</h3>
-				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link active" href="#">home</a>
-					<a class="nav-link" href="#">about</a>
-					<a class="nav-link" href="#">contact</a>
-				</nav>
-			</div>
-		</header>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">awm</h3>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="#">home</a>
+                    <a class="nav-link" href="#">about</a>
+                    <a class="nav-link" href="#">contact</a>
+                </nav>
+            </div>
+        </header>
 
-		<main role="main" class="inner cover">
-			<h1 class="cover-heading">Talk to me.</h1>
-			<p class="lead">Sometimes we just need to vent our thoughts, feelings, and emotions. And sometimes we want to do it without an audience. But sometimes we want to feel compassion by talking with a friend. You can now do both.</p>
-			<p class="lead">
-				<a href="#" class="btn btn-lg btn-secondary">Write a Message</a>
-			</p>
-		</main>
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">Talk to me.</h1>
+            <p class="lead">Sometimes we just need to vent our thoughts, feelings, and emotions. And sometimes we want to do it without an audience. But sometimes we want to feel compassion by talking with a friend. You can now do both.</p>
+            <p class="lead">
+                <button type="button" class="btn btn-lg btn-secondary" data-toggle="modal" data-target="#messageModal">
+                    Write a Message
+                </button>
+            </p>
+        </main>
 
-		<footer class="mastfoot mt-auto">
-			<div class="inner">
-				<p class="text-center">&copy; 2020. <a href="https://johnalcher.me/">John Alcher</a></p>
-			</div>
-		</footer>
-	</div>
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p class="text-center">&copy; 2020. <a href="https://johnalcher.me/">John Alcher</a></p>
+            </div>
+        </footer>
+    </div>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="messageModalLabel">What's on your mind?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/api/messages" id="messageForm">  
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                           <label class="custom-control custom-checkbox">
+                               <input type="checkbox" name="reply_me" class="custom-control-input">
+                               <span class="custom-control-label" for="reply_me">I want to receive a reply.</span>
+                           </label>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap dependencies -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Application code -->
+    <script type="text/javascript" src="/assets/js/app.js"></script>
 </body>
 </html>
