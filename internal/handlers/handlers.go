@@ -10,11 +10,13 @@ import (
 	"net/http"
 )
 
+// Displays the home page of the application
 func Home(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseFiles("web/templates/index.html"))
 	t.Execute(w, nil)
 }
 
+// Handles creation and storage of new messages
 func CreateMessage(w http.ResponseWriter, r *http.Request) {
 	var payload data.Message
 	p, err := ioutil.ReadAll(r.Body)
