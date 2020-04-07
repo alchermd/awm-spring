@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/alchermd/awm/internal/handlers"
 	"github.com/gorilla/mux"
-	"html/template"
 	"log"
 	"net/http"
 	"os"
@@ -18,10 +18,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		t := template.Must(template.ParseFiles("web/templates/index.html"))
-		t.Execute(w, nil)
-	}).Methods("GET")
+	r.HandleFunc("/", handlers.Home).Methods("GET")
 
 	assetPath := "/assets/"
 	log.Print("Serving static files on " + assetPath)
