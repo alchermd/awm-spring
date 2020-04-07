@@ -1,19 +1,12 @@
 package main
 
 import (
-	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/alchermd/awm/internal/data"
 	"log"
-	"os"
 )
 
 func main() {
-	dns := os.Getenv("DB_DATABASE")
-	if dns == "" {
-		log.Fatal("$DB_DATABASE must be set.")
-	}
-
-	db, err := sql.Open("mysql", dns)
+	db, err := data.New()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -24,6 +17,7 @@ CREATE TABLE messages(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(50) NOT NULL,
 	message TEXT NOT NULL,
+	reply_me BOOL NOT NULL,
 	created_at DATETIME DEFAULT NOW()
 )
 `

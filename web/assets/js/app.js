@@ -12,13 +12,14 @@ form.addEventListener("submit", function(e) {
 
 	fetch(endpoint, {
 		method: "POST",
-		data: JSON.stringify(payload),
+		body: JSON.stringify(payload),
 		headers: {
 			"Content-Type": "application/json"
 		},
 	})
 	.then(res => res.json())
 	.then(data => {
-		alert(data.message);
+		alert("Your message has been received");
+		window.location = "/";
 	});
 });
