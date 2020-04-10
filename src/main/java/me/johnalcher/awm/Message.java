@@ -2,17 +2,20 @@ package me.johnalcher.awm;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Date;
+
 @Data
+@Entity
 public class Message {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String body;
     private String name;
     private Boolean replyMe;
-
-    public Message(Long id, String body, String name, Boolean replyMe) {
-        this.id = id;
-        this.body = body;
-        this.name = name;
-        this.replyMe = replyMe;
-    }
+    private Date createdAt;
 }
